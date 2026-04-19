@@ -23,12 +23,17 @@ if (cluster.isPrimary) {
         cluster.fork();
     })
 } else {
-    while(true){}
+    app.get("/" , (req , res)=>{
+        res.send("Heelo word from Arslan")
+    })
+    app.get("/cpu" , (req , res)=>{
+        res.send("Hello words")
+    })
 }
 
 
 
 
-// app.listen(3000, () => {
-//   console.log(`Server is running on port 3000 on ${os.hostname()}`);
-// });
+app.listen(3000, () => {
+  console.log(`Server is running on port 3000 on ${os.hostname()}`);
+});
